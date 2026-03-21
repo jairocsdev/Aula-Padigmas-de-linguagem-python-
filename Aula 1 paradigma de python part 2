@@ -1,0 +1,16 @@
+#Atividade Jairo André do Carmo Silva
+#variavel global
+contador=0
+def incrementar_contador():
+    global contador
+    #variavel local
+    contador +=1
+    #comando pra imprimir mensagem
+    print(f"Valor atualizado:{contador}")
+    mensagem="Contador incrementado"
+    print(mensagem)#comando funciona pq ta dentro da def
+incrementar_contador()
+incrementar_contador()
+incrementar_contador()
+#usa de variavel local no ambito global pra teste
+print(mensagem)           

@@ -1,0 +1,9 @@
+#Atividade Jairo André do Carmo Silva
+#variaveis globais
+nome="Jairo"
+idade=18
+cidade="Imperatriz"
+#Função usando variaveis globais 
+def informações_pessoais():
+    print("meu nome e",nome,"tenho",idade,"anos e moro em",cidade)
+informações_pessoais()
