@@ -1,3 +1,4 @@
+#atividade feita em dupla por Jairo André do Carmo Silva e Eliabe Mesquita
 numero=(input("Digite um número:"))
 resto= int(numero) % 2
 if resto == 0:

@@ -1,3 +1,4 @@
+#atividade feita em dupla por Jairo André do Carmo Silva e Eliabe Mesquita
 nota1 =int(input("Digite sua nota:"))
 nota2 =int(input("Digite sua nota:"))
 nota3 =int(input("Digite sua nota:"))
