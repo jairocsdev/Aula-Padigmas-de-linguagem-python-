@@ -1,0 +1,30 @@
+# Com encapsulamento
+class ContaBancaria:
+    def __init__(self, titular, saldo_inicial):
+        self.__titular = titular
+        self.__saldo = saldo_inicial
+
+    def consultar_saldo(self):
+        return f"O saldo atual é: R${self.__saldo}"
+
+    def depositar(self, valor):
+        if valor > 0:
+            self.__saldo += valor
+            print(f"Depósito de R$ {valor} realizado com sucesso")
+        else:
+            print("O valor depositado deve ser positivo")
+
+    def sacar(self, valor):
+        if valor > 0 and valor <= self.__saldo:
+            self.__saldo -= valor
+            print(f"Saque de R$ {valor} realizado com sucesso")
+        else:
+            print("O valor do saque deve ser positivo e menor ou igual ao saldo atual")
+
+# Criando uma conta bancária
+conta = ContaBancaria("João", 1000)
+# Consultando o saldo   
+print(conta.consultar_saldo())
+# Depositando dinheiro
+conta.depositar(500)
+print(conta.consultar_saldo())
