@@ -34,8 +34,8 @@
     <ul>
       {% for tarefa in tarefas %}
         <li>
-          <span>{{ tarefa }}</span>
-          <form action="{{ url_for('remover', index=loop.index0) }}" method="POST" style="margin:0;">
+          {{ tarefa }}
+          <form action="{{ url_for('remover', index=loop.index0) }}" method="POST" style="display:inline;margin:0;">
             <button type="submit">Remover</button>
           </form>
         </li>
