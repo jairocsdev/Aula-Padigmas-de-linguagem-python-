@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        h1 { margin-bottom: 1rem; }
+        form { margin-bottom: 1rem; display: flex; gap: 0.5rem; }
+        input[type="text"] { flex: 1; padding: 0.5rem; }
+        button { padding: 0.5rem 1rem; }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 0.5rem; padding: 0.75rem; border: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; }
+        .alert { margin-bottom: 1rem; padding: 0.75rem 1rem; background: #eef; border: 1px solid #bbe; }
+    </style>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert">
+          {% for msg in messages %}{{ msg }}{% if not loop.last %}<br>{% endif %}{% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('adicionar') }}" method="POST">
+        <input type="text" name="tarefa" placeholder="Nova tarefa..." required>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <ul>
+      {% for tarefa in tarefas %}
+        <li>
+          <span>{{ tarefa }}</span>
+          <form action="{{ url_for('remover', index=loop.index0) }}" method="POST" style="margin:0;">
+            <button type="submit">Remover</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+</body>
+</html>
